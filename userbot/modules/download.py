@@ -103,7 +103,7 @@ async def download(target_file):
     if not target_file.text[0].isalpha() and target_file.text[0] not in ("/", "#", "@", "!"):
         if target_file.fwd_from:
             return
-        mone = await target_file.edit("Processing ...")
+        await target_file.edit("Processing ...")
         input_str = target_file.pattern_match.group(1)
         if not os.path.isdir(TEMP_DOWNLOAD_DIRECTORY):
             os.makedirs(TEMP_DOWNLOAD_DIRECTORY)
@@ -115,15 +115,15 @@ async def download(target_file):
                     await target_file.get_reply_message(),
                     TEMP_DOWNLOAD_DIRECTORY,
                     progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
-                        progress(d, t, mone, c_time, "Downloading...")
+                        progress(d, t, target_file, c_time, "Downloading...")
                     )
                 )
             except Exception as e: # pylint:disable=C0103,W0703
-                await mone.edit(str(e))
+                await target_file.edit(str(e))
             else:
                 end = datetime.now()
                 duration = (end - start).seconds
-                await mone.edit(
+                await target_file.edit(
                     "Downloaded to `{}` in {} seconds.".format(
                         downloaded_file_name, duration)
                 )
@@ -140,18 +140,18 @@ async def download(target_file):
                     session,
                     url,
                     downloaded_file_name,
-                    mone,
+                    target_file,
                     c_time
                 )
             end = datetime.now()
             duration = (end - start).seconds
             if os.path.exists(downloaded_file_name):
-                await mone.edit(
+                await target_file.edit(
                     "Downloaded to `{}` in {} seconds.".format(
                         downloaded_file_name, duration)
                 )
             else:
-                await mone.edit(
+                await target_file.edit(
                     "Incorrect URL\n{}".format(url)
                 )
         else:
@@ -301,7 +301,7 @@ async def upload(u_event):
         if u_event.is_channel and not u_event.is_group:
             await u_event.edit("`Uploading isn't permitted on channels`")
             return
-        mone = await u_event.edit("Processing ...")
+        await u_event.edit("Processing ...")
         input_str = u_event.pattern_match.group(1)
         if input_str in ("userbot.session", "config.env"):
             await u_event.edit("`That's a dangerous operation! Not Permitted!`")
@@ -316,7 +316,7 @@ async def upload(u_event):
                 allow_cache=False,
                 reply_to=u_event.message.id,
                 progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
-                    progress(d, t, mone, c_time, "Uploading...", input_str)
+                    progress(d, t, u_event, c_time, "Uploading...", input_str)
                 )
             )
             end = datetime.now()
@@ -327,7 +327,7 @@ async def upload(u_event):
 
 
 def get_video_thumb(file, output=None, width=90):
-    """ Get video thhumbnail """
+    """ Get video thumbnail """
     metadata = extractMetadata(createParser(file))
     popen = subprocess.Popen(
         [
