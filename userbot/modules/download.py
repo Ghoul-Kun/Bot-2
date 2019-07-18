@@ -189,7 +189,7 @@ File Size: {}""".format(url, file_name, humanbytes(total_length)))
                     percentage = downloaded * 100 / total_length
                     speed = downloaded / diff
                     elapsed_time = round(diff) * 1000
-                    progress_str = "[{0}{1}]\nProgress: {2}%\n".format(
+                    progress_str = "[{0}{1}]\nProgress: {2}%".format(
                         ''.join(["█" for i in range(math.floor(percentage / 5))]),
                         ''.join(["░" for i in range(20 - math.floor(percentage / 5))]),
                         round(percentage, 2))
