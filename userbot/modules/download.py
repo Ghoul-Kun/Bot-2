@@ -133,6 +133,11 @@ async def download(target_file):
             url = url.strip()
             # https://stackoverflow.com/a/761825/4723940
             file_name = file_name.strip()
+            head, tail = os.path.split(file_name)
+            if head:
+                if not os.path.isdir(TEMP_DOWNLOAD_DIRECTORY + head):
+                    os.makedirs(TEMP_DOWNLOAD_DIRECTORY + head)
+                    file_name = os.path.join(head, tail)
             downloaded_file_name = TEMP_DOWNLOAD_DIRECTORY + "" + file_name
             async with aiohttp.ClientSession() as session:
                 c_time = time.time()
