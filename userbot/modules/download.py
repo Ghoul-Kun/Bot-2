@@ -50,7 +50,7 @@ async def progress(current, total, event, start, type_of_ps, file_name = None):
                 time_formatter(estimated_total_time)
             )
         if file_name:
-            await event.edit("{}\n`{}`\n{}".format(
+            await event.edit("{}\nFile Name: `{}`\n{}".format(
                 type_of_ps,
                 file_name,
                 tmp
@@ -184,18 +184,23 @@ File Size: {}""".format(url, file_name, humanbytes(total_length)))
                     percentage = downloaded * 100 / total_length
                     speed = downloaded / diff
                     elapsed_time = round(diff) * 1000
+                    progress_str = "[{0}{1}]\nProgress: {2}%\n".format(
+                        ''.join(["█" for i in range(math.floor(percentage / 5))]),
+                        ''.join(["░" for i in range(20 - math.floor(percentage / 5))]),
+                        round(percentage, 2))
                     time_to_completion = round(
                         (total_length - downloaded) / speed) * 1000
                     estimated_total_time = elapsed_time + time_to_completion
                     try:
-                        current_message = """**Download Status**
+                        current_message = """Downloading...
 URL: {}
 File Name: {}
-File Size: {}
-Downloaded: {}
+{}
+{} of {}
 ETA: {}""".format(
     url,
     file_name,
+    progress_str,
     humanbytes(total_length),
     humanbytes(downloaded),
     time_formatter(estimated_total_time)
