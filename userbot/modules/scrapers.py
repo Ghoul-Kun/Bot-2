@@ -7,6 +7,7 @@
 """ Userbot module containing various scrapers. """
 
 import os
+import shutil
 import bs4
 import re
 from time import sleep
@@ -127,9 +128,7 @@ async def img_sampler(event):
         paths = response.download(arguments)
         lst = paths[0][query]
         await event.client.send_file(await event.client.get_input_entity(event.chat_id), lst)
-        os.remove(lst[0])
-        os.remove(lst[1])
-        os.rmdir(os.path.dirname(os.path.abspath(lst[0])))
+        shutil.rmtree(os.path.dirname(os.path.abspath(lst[0])))
         await event.delete()
 
 @register(outgoing=True, pattern="^.currency (.*)")
