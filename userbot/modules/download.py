@@ -135,8 +135,8 @@ async def download(target_file):
             file_name = file_name.strip()
             head, tail = os.path.split(file_name)
             if head:
-                if not os.path.isdir(TEMP_DOWNLOAD_DIRECTORY + head):
-                    os.makedirs(TEMP_DOWNLOAD_DIRECTORY + head)
+                if not os.path.isdir(os.path.join(TEMP_DOWNLOAD_DIRECTORY, head)):
+                    os.makedirs(os.path.join(TEMP_DOWNLOAD_DIRECTORY, head))
                     file_name = os.path.join(head, tail)
             downloaded_file_name = TEMP_DOWNLOAD_DIRECTORY + "" + file_name
             async with aiohttp.ClientSession() as session:
