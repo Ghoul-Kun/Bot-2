@@ -12,6 +12,7 @@
     "repository":"https://github.com/AvinashReddy3108/PaperplaneExtended",
     "website":"https://github.com/RaphielGang/Telegram-UserBot/wiki",
     "success_url":"https://t.me/userbot_announcements",
+    "stack": "container",
     "env":{
         "API_KEY":{
             "description":"Get this value from my.telegram.org.",
