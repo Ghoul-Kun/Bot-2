@@ -827,20 +827,20 @@ async def get_users(show):
                         mentions += f"\nDeleted Account `{user.id}`"
         except ChatAdminRequiredError as err:
             mentions += " " + str(err) + "\n"
-        if len(mentions) > 4096:
-            await show.edit("Damn, this is a HUGE group !!\nUploading users list as file.")
-            file = open("userslist.txt", "w+")
-            file.write(mentions)
-            file.close()
-            await show.client.send_file(
-                show.chat_id,
-                "userslist.txt",
-                caption='Users in {}'.format(title),
-                reply_to=show.id,
-            )
-            remove("userslist.txt")
-        else:
-            await show.edit(mentions)
+          if len(mentions) > 4096:
+              await show.edit("Damn, this is a HUGE group !!\nUploading users list as file.")
+              file = open("userslist.txt", "w+")
+              file.write(mentions)
+              file.close()
+              await show.client.send_file(
+                  show.chat_id,
+                  "userslist.txt",
+                  caption='Users in {}'.format(title),
+                  reply_to=show.id,
+              )
+              remove("userslist.txt")
+          else:
+              await show.edit(mentions)
 
 async def get_user_from_event(event):
     """ Get the user from argument or replied message. """
