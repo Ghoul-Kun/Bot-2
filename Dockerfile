@@ -18,6 +18,7 @@ RUN apk add --no-cache --update \
     sudo \
     util-linux \
     chromium \
+    chromium-chromedriver \
     jpeg-dev \
     libffi-dev \
     libpq \
