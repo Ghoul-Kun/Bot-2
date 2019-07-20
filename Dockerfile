@@ -39,7 +39,7 @@ RUN apk add --no-cache --update \
     py-requests \
     py-sqlalchemy \
     py-tz \
-    py3-aiohttp
+    py3-aiohttp \
     python-dev \
     python3 \
     python3-dev \
