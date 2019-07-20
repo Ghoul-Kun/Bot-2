@@ -1,12 +1,14 @@
 aiohttp
 async_generator
+bs4
 cowpy
 cowsay
 cryptg
+dnspython
 emoji
-bs4
 gitpython
 google-api-python-client
+google-auth-oauthlib
 googletrans>=2.4.0
 google_auth_oauthlib
 google_images_download>=2.7.1
@@ -25,6 +27,7 @@ pybase64>=0.4.0
 pyfiglet
 PyLyrics
 python-dotenv
+pythonping
 pytube>=9.5.1
 pytz
 qrcode
