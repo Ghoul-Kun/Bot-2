@@ -16,6 +16,7 @@ RUN apk add --no-cache --update \
     gcc \
     git \
     sudo \
+    util-linux \
     chromium \
     jpeg-dev \
     libffi-dev \
