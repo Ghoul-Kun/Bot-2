@@ -14,8 +14,9 @@ RUN apk add --no-cache --update \
     curl \
     figlet \
     gcc \
-    git sudo \
     git \
+    sudo \
+    chromium \
     jpeg-dev \
     libffi-dev \
     libpq \
