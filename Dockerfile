@@ -43,6 +43,10 @@ RUN apk add --no-cache --update \
     py-tz \
     py3-aiohttp \
     python-dev \
+    openssl \
+    pv \
+    jq \
+    wget \
     python3 \
     python3-dev \
     readline-dev \
@@ -70,6 +74,12 @@ WORKDIR /home/userbot/userbot
 # Copies session and config(if it exists)
 #
 COPY ./sample_config.env ./userbot.session* ./config.env* /home/userbot/userbot/
+
+#
+# Clone helper scripts
+#
+RUN curl -s https://raw.githubusercontent.com/yshalsager/megadown/master/megadown -o /usr/bin/megadown && sudo chmod a+x /usr/bin/megadown
+RUN curl -s https://raw.githubusercontent.com/yshalsager/cmrudl.py/master/cmrudl.py -o /usr/bin/cmrudl && sudo chmod a+x /usr/bin/cmrudl
 
 #
 # Install requirements

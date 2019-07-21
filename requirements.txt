@@ -36,6 +36,7 @@ speedtest-cli>=2.0.2
 spotify_token
 sqlalchemy>=1.2
 telegraph
+humanize
 telethon>=1.9
 telethon-session-sqlalchemy>=0.2.6
 urbandict>=0.5
