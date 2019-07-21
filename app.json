@@ -1,5 +1,5 @@
 {
-  "name": "Telegram Userbot",
+  "name": "Paperplane Extended",
   "description": "A modular Telegram userbot running on Python 3.6+ with an sqlalchemy database.",
   "logo": "https://i.imgur.com/ATSG4w3.png",
   "keywords": [
@@ -58,10 +58,6 @@
       "description": "PM Auto-Ban Feature Switch",
       "value": "False"
     },
-    "BUILD_CHOICE": {
-      "description": "Build Choice Bleeding or Stable",
-      "value": "Stable"
-    },
     "YOUTUBE_API_KEY": {
       "description": "YouTube Data API Key for .yt command. Get from https://console.cloud.google.com",
       "required": false
@@ -85,10 +81,6 @@
     "WELCOME_MUTE": {
       "description": "Mute some known spammer bots after they join.",
       "value": "False"
-    },
-    "UPDATER": {
-      "description": "Keep this 'False' if using Heroku !!",
-      "value": "False"
     }
   },
   "addons": [
@@ -97,17 +89,6 @@
       "options": {
         "version": "9.5"
       }
-    }
-  ],
-  "buildpacks": [
-    {
-      "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest"
-    },
-    {
-      "url": "heroku/python"
-    },
-    {
-      "url": "heroku-community/apt"
     }
   ]
 }
