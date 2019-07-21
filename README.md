@@ -38,7 +38,7 @@ Please head to the wiki on instructions to setting it up!
 
 ### Credits:
 
-I would like to thank people who assisted me throughout this project:
+I would like to thank the cool peeps behind this awesome project :
 
 * [@YouTwitFace](https://github.com/YouTwitFace)
 * [@TheDevXen](https://github.com/TheDevXen)
@@ -55,6 +55,7 @@ I would like to thank people who assisted me throughout this project:
 * [@zakaryan2004](https://github.com/zakaryan2004)
 * [@kandnub](https://github.com/kandnub)
 * [@pqhaz](https://github.com/pqhaz)
+* [@yshalsager](https://github.com/yshalsager)
 
 and many more people and projects who aren’t mentioned here.
 
